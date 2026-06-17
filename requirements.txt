@@ -4,9 +4,12 @@ torch
 requests
 numpy
 pandas
+langchain>=0.3
 langchain-community
 langchain-core
+langchain-classic
 langchain-ollama
+langchain-text-splitters
 faiss-cpu
 sentence-transformers
 rank-bm25

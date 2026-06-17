@@ -1,8 +1,8 @@
 version: "3.8"
 
 services:
-  deepgraph-rag-service:
-    container_name: deepgraph-rag-service
+  cortex-rag-service:
+    container_name: cortex-rag-service
     build: .
     # Map Streamlit's default port 8501 in the container to 8501 on the host.
     ports:
@@ -13,7 +13,7 @@ services:
     # Or define them inline:
     environment:
       - OLLAMA_API_URL=http://host.docker.internal:11434
-      - MODEL=huihui-ai/Qwen3-1.7B-abliterated
+      - MODEL=llama3.1:8b
       - EMBEDDINGS_MODEL=nomic-embed-text:latest
       - CROSS_ENCODER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
 

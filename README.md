@@ -1,223 +1,335 @@
-# 🚀 **DeepSeek RAG Chatbot 3.0 – Now with GraphRAG & Chat History Integration!**
-**(100% Free, Private (No Internet), and Local PC Installation)**  
+<p align="center">
+  <img src="assets/banner.svg" alt="Cortex RAG — Agentic Retrieval Engine 2026" width="100%"/>
+</p>
 
-[![Your Video Title](https://img.youtube.com/vi/xDGLub5JPFE/0.jpg)](https://www.youtube.com/watch?v=xDGLub5JPFE "Watch on YouTube")
+<br/>
 
-🔥 **DeepSeek + NOMIC + FAISS + Neural Reranking + HyDE + GraphRAG + Chat Memory = The Ultimate RAG Stack!**  
+<p align="center">
+  <img src="assets/demo.svg" alt="Cortex RAG in action" width="92%"/>
+</p>
+<p align="center">
+  <sub>↑ &nbsp; what actually happens every time you send a message</sub>
+</p>
 
-This chatbot enables **fast, accurate, and explainable retrieval of information** from PDFs, DOCX, and TXT files using **DeepSeek-7B**, **BM25**, **FAISS**, **Neural Reranking (Cross-Encoder)**, **GraphRAG**, and **Chat History Integration**.  
+<br/>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776ab?style=flat-square&logo=python&logoColor=white"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Streamlit-1.30-ff4b4b?style=flat-square&logo=streamlit&logoColor=white"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Ollama-local_LLM-ffb347?style=flat-square"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/RAG-9_techniques-8b7bff?style=flat-square"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/zero-cloud-2dd4bf?style=flat-square"/>
+  &nbsp;
+  <img src="https://img.shields.io/github/stars/SaiAkhil066/DeepSeek-RAG-Chatbot?style=flat-square&color=ffb347"/>
+</p>
 
-## **🔹 New Features in This Version**
+<h3 align="center">
+  You upload a PDF. You ask a question.<br/>
+  Cortex RAG retrieves, cross-checks, reasons, and cites — entirely on your machine.<br/>
+  <sub>No API key &nbsp;·&nbsp; No cloud upload &nbsp;·&nbsp; No subscription</sub>
+</h3>
 
-- **GraphRAG Integration:** Builds a **Knowledge Graph** from your documents for more **contextual** and **relational** understanding.  
-- **Chat Memory History Awareness:** Maintains context by referencing **chat history**, enabling more **coherent** and **contextually relevant** responses.  
-- **Improved Error Handling:** Resolved issues related to **chat history clearing** and other minor bugs for a **smoother user experience**.  
-
----
-## **Upcoming Features**
- ## You can select a model from the UI interface (any Ollama model).
-
-Example: Users can choose between models like mistral, gemma, or llama3 from a dropdown menu.
-## The chat section suggests relevant questions based on the document.
-
-Example: If the document is about "Machine Learning Basics," suggested questions could be:
-What is supervised learning?
-How does gradient descent work?
-What are the common evaluation metrics for ML models?
-## Different pipelines are available for various RAG (Retrieval-Augmented Generation) methods.
-
-Example:
-Basic RAG Pipeline: Uses FAISS for retrieval and a simple prompt format.
-Advanced RAG Pipeline: Uses ChromaDB with metadata filtering for more precise document retrieval.
-
-## Different data stores and similarity search techniques are used.
-
-Example:
-Data Stores: PostgreSQL, Pinecone, Weaviate, ChromaDB.
-Similarity Search Techniques: Cosine similarity, Euclidean distance, Jaccard similarity.
-  
-## *Installation & Setup**
-
-There are a few ways to install and run the **DeepSeek RAG Chatbot**:
-
-1. **Simplified Installation (Recommended using `install.sh`)**
-2. **Traditional (Manual Python/venv) Installation**
-3. **Docker Installation** (ideal for containerized deployments)
+<br/>
 
 ---
 
-## **1️⃣ Simplified Installation (Recommended using `install.sh`)**
+<br/>
 
-This is the easiest way to get started. The `install.sh` script automates the setup process.
+<h2 align="center">✦ &nbsp; Nine Techniques &nbsp; ✦</h2>
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/SaiAkhil066/DeepSeek-RAG-Chatbot.git
-    cd DeepSeek-RAG-Chatbot
-    ```
+<br/>
 
-2.  **Run the Installation Script:**
-    Make sure the script is executable, then run it:
-    ```bash
-    chmod +x install.sh
-    ./install.sh
-    ```
-    This script will:
-    *   Check for Ollama and install it if it's not found.
-    *   Install Python dependencies from `requirements.txt`.
-    *   Create or update a `.env` file with the necessary environment variables, including the model `huihui-ai/Qwen3-1.7B-abliterated`.
-    *   Pull the specified Ollama model.
+<table>
+<tr>
+<td align="center" valign="top" width="33%">
+<br/>
+<b>🧬 &nbsp; Contextual Retrieval</b>
+<br/><br/>
+<sub>LLM prepends situating context to every chunk <i>before</i> indexing. Each vector carries the full document story, not just a fragment.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top" width="33%">
+<br/>
+<b>🔀 &nbsp; RAG-Fusion + RRF</b>
+<br/><br/>
+<sub>Generates N query variants, retrieves independently for each, then merges all ranked lists via Reciprocal Rank Fusion for better recall.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top" width="33%">
+<br/>
+<b>🕸️ &nbsp; GraphRAG</b>
+<br/><br/>
+<sub>Builds a NetworkX knowledge graph over document entities. Retrieves relational context that a pure vector search would miss entirely.</sub>
+<br/><br/>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<br/>
+<b>✅ &nbsp; Corrective RAG (CRAG)</b>
+<br/><br/>
+<sub>LLM grades every retrieved chunk for relevance. Noise is silently dropped before the answer is generated. The model only sees what matters.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top">
+<br/>
+<b>⚡ &nbsp; Neural Reranking</b>
+<br/><br/>
+<sub>A Cross-Encoder (ms-marco-MiniLM) reorders all retrieval candidates by true query–passage relevance score, not just embedding similarity.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top">
+<br/>
+<b>🔭 &nbsp; HyDE</b>
+<br/><br/>
+<sub>Generates a hypothetical answer first to expand sparse queries into a richer dense embedding space before the actual retrieval step.</sub>
+<br/><br/>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<br/>
+<b>🧠 &nbsp; Live Reasoning Panel</b>
+<br/><br/>
+<sub>Streams the model's <code>&lt;think&gt;</code> chain-of-thought in real time. Watch it reason through your documents before the answer appears.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top">
+<br/>
+<b>💾 &nbsp; Semantic Cache</b>
+<br/><br/>
+<sub>Cosine-similarity cache at threshold 0.92 on query embeddings. Repeat questions skip retrieval and generation entirely — answer is instant.</sub>
+<br/><br/>
+</td>
+<td align="center" valign="top">
+<br/>
+<b>💬 &nbsp; Chat Memory</b>
+<br/><br/>
+<sub>Full multi-turn conversation history flows into every generation call. Ask follow-ups naturally; the model remembers what you discussed.</sub>
+<br/><br/>
+</td>
+</tr>
+</table>
 
-3.  **Activate Environment Variables:**
-    After the script completes, source the `.env` file to load the environment variables into your current shell session:
-    ```bash
-    source .env
-    ```
-
-4.  **Run the Chatbot:**
-    Launch the Streamlit app:
-    ```bash
-    streamlit run app.py
-    ```
-    Open your browser at **[http://localhost:8501](http://localhost:8501)** to access the chatbot UI.
+<br/>
 
 ---
 
-## **2️⃣ Traditional (Manual Python/venv) Installation**
+<br/>
 
-### **Step A: Clone the Repository & Install Dependencies**
+<h2 align="center">⟁ &nbsp; How a query flows through the system</h2>
+
+<br/>
+
 ```
+Upload (PDF / DOCX / TXT)
+ │
+ ├── Chunk documents
+ │
+ └── [Contextual Retrieval ON]──► LLM enriches each chunk with surrounding context
+                                         │
+                                         ▼
+                     ┌──────────────────────────────────┐
+                     │   BM25   ·   FAISS   ·   Graph   │  ← three indexes built
+                     └──────────────────────────────────┘
+                                         │
+                                   Query arrives
+                                         │
+                         ┌───────────────┴───────────────┐
+                         ▼                               ▼
+                  💾 Semantic Cache?              🔀 RAG-Fusion
+                  ┌── HIT → return instantly       multi-query expansion
+                  │   MISS ↓                            │
+                  │                              RRF merge of results
+                  │                            + GraphRAG entity boost
+                  │                                     │
+                  │                            ⚡ Neural Rerank (CrossEncoder)
+                  │                                     │
+                  │                            ✅ CRAG: grade each chunk
+                  │                               drop irrelevant ones
+                  │                                     │
+                  │                            🧠 LLM stream
+                  │                               <think> panel live
+                  │                                     │
+                  └─────────────────────────────► Answer + Source cards
+```
+
+<br/>
+
+---
+
+<br/>
+
+<h2 align="center">⚡ &nbsp; Quick Start</h2>
+
+<br/>
+
+**Before you begin:**
+
+- [ ] [Ollama](https://ollama.com/) installed and running
+- [ ] Python 3.10 or higher available
+
+<br/>
+
+**1 &nbsp;—&nbsp; Clone**
+
+```bash
 git clone https://github.com/SaiAkhil066/DeepSeek-RAG-Chatbot.git
 cd DeepSeek-RAG-Chatbot
+```
 
-# Create a virtual environment
-python -m venv venv
+**2 &nbsp;—&nbsp; Install**
 
-# Activate your environment
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-
-# Upgrade pip (optional, but recommended)
-pip install --upgrade pip
-
-# Install project dependencies
+```bash
 pip install -r requirements.txt
 ```
 
-### **Step B: Download & Set Up Ollama**
-1. **Download Ollama** → [https://ollama.com/](https://ollama.com/)  
-2. **Pull the required models**:
-   ```
-   ollama pull huihui-ai/Qwen3-1.7B-abliterated 
-   ollama pull nomic-embed-text
-   ```
-   *Note: The `install.sh` script handles model pulling automatically. If installing manually and you want to use a different model, update `MODEL` or `EMBEDDINGS_MODEL` in your environment variables or create a `.env` file accordingly.*
+> **Windows only:** if you get a `c10.dll` DLL error on first run, pin PyTorch to the stable CPU build:
+> ```bash
+> pip uninstall torch -y
+> pip install "torch==2.1.2" --index-url https://download.pytorch.org/whl/cpu
+> ```
 
-### **Step C: Run the Chatbot**
-1. Make sure **Ollama** is running on your system:
-   ```
-   ollama serve
-   ```
-2. Launch the Streamlit app:
-   ```
-   streamlit run app.py
-   ```
-3. Open your browser at **[http://localhost:8501](http://localhost:8501)** to access the chatbot UI.
+**3 &nbsp;—&nbsp; Pull models**
+
+```bash
+ollama pull llama3.1:8b          # LLM  (swap for any model you prefer)
+ollama pull nomic-embed-text     # Embeddings  (required)
+```
+
+**4 &nbsp;—&nbsp; Run**
+
+```bash
+python -m streamlit run app.py
+```
+
+Open **http://localhost:8501**
+
+> Use `python -m streamlit run` (not bare `streamlit run`) to ensure the correct Python environment is picked up.
+
+<br/>
 
 ---
 
-## **2️⃣ Docker Installation**
+<br/>
 
-### **A) Single-Container Approach (Ollama on Your Host)**
+<h2 align="center">🤖 &nbsp; Works with any Ollama model</h2>
 
-If **Ollama** is already **installed on your host machine** and listening at `localhost:11434`, do the following:
+<br/>
 
-1. **Build & Run**:
-   ```
-   docker-compose build
-   docker-compose up
-   ```
-2. The app is now served at **[http://localhost:8501](http://localhost:8501)**. Ollama runs on your host, and the container accesses it via the specified URL.
+The model selector in the sidebar auto-populates from your locally installed Ollama models. Swap freely — no config change needed.
 
-### **B) Two-Container Approach (Ollama in Docker)**
+<br/>
 
-If you prefer **everything** in Docker:
+| Model | Params | Speed | Notes |
+|---|---|---|---|
+| `llama3.1:8b` | 8B | ⚡⚡⚡ | Default · best all-round balance |
+| `qwen2.5:7b` | 7B | ⚡⚡⚡ | Strong on multilingual documents |
+| `mistral:7b` | 7B | ⚡⚡⚡ | Fast, great for long documents |
+| `llama3.1:70b` | 70B | ⚡ | Best quality when speed isn't priority |
+| `qwen2.5-coder:7b` | 7B | ⚡⚡⚡ | Best for code / technical docs |
+
+<br/>
+
+---
+
+<br/>
+
+<details>
+<summary><b>🐳 &nbsp; Docker setup</b></summary>
+
+<br/>
+
+**Option A — Ollama on host (recommended)**
+
+```bash
+docker-compose build && docker-compose up
 ```
-version: "3.8"
 
+Ollama runs natively; the container connects via the host network.
+
+<br/>
+
+**Option B — Everything in Docker**
+
+```yaml
+version: "3.8"
 services:
   ollama:
     image: ghcr.io/jmorganca/ollama:latest
-    container_name: ollama
     ports:
       - "11434:11434"
 
-  deepgraph-rag-service:
-    container_name: deepgraph-rag-service
+  cortex-rag-service:
     build: .
     ports:
       - "8501:8501"
     environment:
       - OLLAMA_API_URL=http://ollama:11434
-      - MODEL=huihui-ai/Qwen3-1.7B-abliterated
+      - MODEL=llama3.1:8b
       - EMBEDDINGS_MODEL=nomic-embed-text:latest
       - CROSS_ENCODER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
     depends_on:
       - ollama
 ```
 
-Then:
-```
-docker-compose build
+```bash
 docker-compose up
 ```
-Both **Ollama** and the chatbot run in Docker. Access the chatbot at **[http://localhost:8501](http://localhost:8501)**.
 
+</details>
 
-### **But consider step A) for comfort..**
----
-
-# **How the Chatbot Works**
-
-1. **Upload Documents**: Add PDFs, DOCX, or TXT files via the sidebar.  
-2. **Hybrid Retrieval**: Combines **BM25** and **FAISS** to fetch the most relevant text chunks.  
-3. **GraphRAG Processing**: Builds a **Knowledge Graph** from your documents to understand relationships and context.  
-4. **Neural Reranking**: Uses a **Cross-Encoder** model for reordering the retrieved chunks by relevance.  
-5. **Query Expansion (HyDE)**: Generates hypothetical answers to **expand** your query for better recall.  
-6. **Chat Memory History Integration**: Maintains context by referencing previous user messages.  
-7. **DeepSeek-7B Generation**: Produces the final answer based on top-ranked chunks.
+<br/>
 
 ---
 
-## **🔹 Why This Upgrade?**
+<br/>
 
-| Feature                       | Previous Version            | New Version                        |
-|------------------------------|-----------------------------|------------------------------------|
-| **Retrieval Method**         | Hybrid (BM25 + FAISS)      | Hybrid + **GraphRAG**             |
-| **Contextual Understanding** | Limited                    | **Enhanced with Knowledge Graphs** |
-| **User Interface**           | Standard                   | **Customizable + Themed Sidebar**  |
-| **Chat History**             | Not Utilized               | **Full Memory Integration**        |
-| **Error Handling**           | Basic                      | **Improved with Bug Fixes**        |
+<h2 align="center">🔩 &nbsp; Tech Stack</h2>
 
+<br/>
+
+<table>
+<tr>
+<td><b>UI</b></td><td>Streamlit 1.30</td>
+<td><b>LLM inference</b></td><td>Ollama (local)</td>
+</tr>
+<tr>
+<td><b>Vector store</b></td><td>FAISS</td>
+<td><b>Sparse retrieval</b></td><td>BM25 (rank-bm25)</td>
+</tr>
+<tr>
+<td><b>Knowledge graph</b></td><td>NetworkX</td>
+<td><b>Neural reranker</b></td><td>sentence-transformers CrossEncoder</td>
+</tr>
+<tr>
+<td><b>Embeddings</b></td><td>nomic-embed-text via Ollama</td>
+<td><b>RAG orchestration</b></td><td>LangChain + langchain-classic</td>
+</tr>
+<tr>
+<td><b>Document loading</b></td><td>PyMuPDF · Docx2txt · TextLoader</td>
+<td><b>Supported files</b></td><td>PDF · DOCX · TXT · MD</td>
+</tr>
+</table>
+
+<br/>
 
 ---
 
-## **📌 Contributing**
+<br/>
 
-- **Fork** this repo, submit **pull requests**, or open **issues** for new features or bug fixes.  
-- We love hearing community suggestions on how to extend or improve the chatbot.
-
----
-
-### **🔗 Connect & Share Your Thoughts!**
-
-Got feedback or suggestions? Let’s discuss on [**Reddit**](https://www.reddit.com/user/akhilpanja/)! 🚀💡
-
----
-
-**Enjoy building knowledge graphs, maintaining conversation memory, and harnessing powerful local LLM inference—all from your own machine.**  
-_The future of retrieval-augmented AI is here—no internet required!_
+<p align="center">
+  Built with curiosity &nbsp;·&nbsp; runs on your machine &nbsp;·&nbsp; owned by you
+  <br/><br/>
+  <a href="https://www.reddit.com/user/akhilpanja/">Reddit</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/SaiAkhil066/DeepSeek-RAG-Chatbot/issues">Issues</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/SaiAkhil066/DeepSeek-RAG-Chatbot/pulls">Pull Requests</a>
+  <br/><br/>
+  <sub><i>The future of retrieval-augmented AI is local — no internet required.</i></sub>
+</p>
