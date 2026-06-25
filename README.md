@@ -35,6 +35,20 @@
 
 <br/>
 
+<p align="center">
+  <a href="https://cortex-rag-beta.vercel.app/">
+    <img src="https://img.shields.io/badge/🌐%20Enterprise%20Solutions-cortex--rag--beta.vercel.app-c8f135?style=for-the-badge&labelColor=070809"/>
+  </a>
+</p>
+
+<br/>
+
+> **Open for Enterprise.**
+> We build custom, production-grade RAG systems for organizations — same 9-layer pipeline, tuned to your data, your permissions, your stack. Deployed in days, not months. At a fraction of what closed-source vendors charge.
+> **[→ See what we can build for you](https://cortex-rag-beta.vercel.app/)**
+
+<br/>
+
 ---
 
 <br/>
